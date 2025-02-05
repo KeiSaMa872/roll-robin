@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình phát video</title>
+</head>
+<body>
+    <h2>Xem video của bạn</h2>
+    <input type="file" id="videoInput" accept="video/*">
+    <br><br>
+    <video id="videoPlayer" width="640" controls>
+        <source src="rollrobin.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video
+    </video>
+    
+    <script>
+        document.getElementById('videoInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                document.getElementById('videoPlayer').src = url;
+            }
+        });
+    </script>
+</body>
+</html>
